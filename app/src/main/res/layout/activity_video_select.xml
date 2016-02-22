@@ -12,10 +12,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Button"
-        android:id="@+id/button"
+        android:text="Play Utchdorf"
+        android:id="@+id/playUtchdorf"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="156dp" />
-
+        android:layout_marginTop="73dp"
+        android:onClick="playSound" />
 </RelativeLayout>
