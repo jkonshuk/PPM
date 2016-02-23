@@ -14,7 +14,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.example.sat14.ppm.MainActivity"
-        android:background="#0b0888">
+        android:background="#58050e">
 
         <VideoView
             android:layout_width="fill_parent"
