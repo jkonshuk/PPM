@@ -19,13 +19,13 @@ public class VideoSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_select);
-        audio = MediaPlayer.create(this, R.raw.theholyghostasyourcompanion);
+        audio = MediaPlayer.create(this, R.raw.uchtdorf);
     }
 
     public void playSound(View v) {
         if (!audio.isPlaying()) {
             if (isStopped){
-                audio = MediaPlayer.create(this, R.raw.theholyghostasyourcompanion);
+                audio = MediaPlayer.create(this, R.raw.uchtdorf);
                 isStopped = false;
             }
             audio.start();

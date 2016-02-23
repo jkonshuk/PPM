@@ -70,14 +70,27 @@
             android:id="@+id/videoView8"
             android:layout_below="@+id/button8" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <VideoView
+            android:layout_width="fill_parent"
+            android:layout_height="150sp"
+            android:id="@+id/videoView9"
+            android:layout_below="@+id/videoView9" />
+
+        <VideoView
+            android:layout_width="fill_parent"
+            android:layout_height="150sp"
+            android:id="@+id/videoView10"
+            android:layout_above="@+id/button" />
+
+        <ImageButton
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:text="New Button"
             android:id="@+id/button"
             android:layout_below="@+id/videoView"
             android:layout_centerHorizontal="true"
-            android:onClick="playSound" />
+            android:onClick="playSound"
+            android:background="@drawable/audio" />
 
         <Button
             android:layout_width="wrap_content"
@@ -85,7 +98,7 @@
             android:text="New Button"
             android:id="@+id/button2"
             android:layout_below="@+id/videoView1"
-            android:layout_alignStart="@+id/button" />
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -141,7 +154,7 @@
             android:text="New Button"
             android:id="@+id/button9"
             android:layout_below="@+id/videoView8"
-            android:layout_alignStart="@+id/button" />
+            android:layout_alignLeft="@+id/button8" />
 
 
     </RelativeLayout>
