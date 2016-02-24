@@ -29,6 +29,6 @@ public class ExampleUnitTest extends VideoSelect{
      */
     @Test
     public void audioRunning() throws Exception {
-        assert(audio.isPlaying() && isStopped);
+        assert(audio.isPlaying() && !isStopped);
     }
 }
