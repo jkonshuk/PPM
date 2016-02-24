@@ -1,7 +1,5 @@
 package com.practice.jacob.ppm;
 
-import android.media.MediaPlayer;
-
 import org.junit.Test;
 
 import java.io.File;
@@ -29,7 +27,7 @@ public class ExampleUnitTest extends VideoSelect {
     */
     @Test
     public void audioFile() throws Exception {
-        assert (new File("C:\\Users\\taser_000\\AndroidStudioProjects\\PPM\\app\\src\\main\\res\\raw\\uchtdorf.mp3").isFile());
+        assert(new File("C:\\Users\\Jakob\\AndroidStudioProjects\\PPM\\app\\src\\main\\res\\raw\\uchtdorf.mp3").isFile());
     }
 
     /*
