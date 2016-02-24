@@ -10,9 +10,9 @@ public class VideoSelect extends AppCompatActivity {
 
     public MediaPlayer audio;
     public boolean isStopped = false;
-    private boolean videoStop = false;
+    public boolean videoStop = false;
     private SurfaceView mySurface;
-    private MediaPlayer myPlayer;
+    public MediaPlayer myPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,6 @@ public class VideoSelect extends AppCompatActivity {
         }
         else {
             audio.stop();
-            audio.release();
             isStopped = true;
         }
     }
