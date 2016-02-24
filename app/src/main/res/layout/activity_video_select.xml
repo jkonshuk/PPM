@@ -14,25 +14,31 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.example.sat14.ppm.MainActivity"
-        android:background="#58050e">
+        android:background="#e8e8e8">
 
         <VideoView
             android:layout_width="fill_parent"
             android:layout_height="150sp"
             android:id="@+id/videoView"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:clickable="true"
+            android:onClick="playMovie" />
 
         <VideoView
             android:layout_width="fill_parent"
             android:layout_height="150sp"
             android:id="@+id/videoView1"
-            android:layout_below="@+id/button" />
+            android:layout_below="@+id/button"
+            android:clickable="true"
+            android:onClick="playMovie" />
 
         <VideoView
             android:layout_width="fill_parent"
             android:layout_height="150sp"
             android:id="@+id/videoView2"
-            android:layout_below="@+id/button2" />
+            android:layout_below="@+id/button2"
+            android:onClick="playMovie"
+            android:clickable="true" />
 
         <VideoView
             android:layout_width="fill_parent"
@@ -70,18 +76,6 @@
             android:id="@+id/videoView8"
             android:layout_below="@+id/button8" />
 
-        <VideoView
-            android:layout_width="fill_parent"
-            android:layout_height="150sp"
-            android:id="@+id/videoView9"
-            android:layout_below="@+id/videoView9" />
-
-        <VideoView
-            android:layout_width="fill_parent"
-            android:layout_height="150sp"
-            android:id="@+id/videoView10"
-            android:layout_above="@+id/button" />
-
         <ImageButton
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -98,7 +92,8 @@
             android:text="New Button"
             android:id="@+id/button2"
             android:layout_below="@+id/videoView1"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="playMovie" />
 
         <Button
             android:layout_width="wrap_content"
