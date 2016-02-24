@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 /**
  * To work on unit tests, switch the Test Artifact in the Build Variants view.
  */
-public class ExampleUnitTest {
+public class ExampleUnitTest extends VideoSelect{
 
     @Test
     public void videoPlaying () throws Exception {
@@ -29,6 +29,6 @@ public class ExampleUnitTest {
      */
     @Test
     public void audioRunning() throws Exception {
-        //assert()
+        assert(audio.isPlaying() && isStopped);
     }
 }

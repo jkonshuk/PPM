@@ -8,8 +8,8 @@ import android.view.View;
 
 public class VideoSelect extends AppCompatActivity {
 
-    private MediaPlayer audio;
-    private boolean isStopped = false;
+    public MediaPlayer audio;
+    public boolean isStopped = false;
     private boolean videoStop = false;
     private SurfaceView mySurface;
     private MediaPlayer myPlayer;
