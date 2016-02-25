@@ -33,7 +33,6 @@ public class VideoSelect extends AppCompatActivity {
         }
         else {
             audio.stop();
-            audio.release();
             isStopped = true;
         }
     }
@@ -52,5 +51,10 @@ public class VideoSelect extends AppCompatActivity {
             myPlayer.pause();
             videoStop = true;
         }
+    }
+
+    public static MediaPlayer getAudio()
+    {
+        return null;
     }
 }

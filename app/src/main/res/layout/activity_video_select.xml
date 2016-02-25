@@ -154,6 +154,16 @@
             android:layout_alignLeft="@+id/button8"
             android:background="@drawable/audio" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button11"
+            android:layout_above="@+id/videoView1"
+            android:layout_alignRight="@+id/videoView"
+            android:layout_alignEnd="@+id/videoView"
+            android:onClick="playMovie" />
+
 
     </RelativeLayout>
 </ScrollView>
