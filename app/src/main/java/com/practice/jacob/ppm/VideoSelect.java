@@ -8,11 +8,11 @@ import android.view.View;
 
 public class VideoSelect extends AppCompatActivity {
 
-    private MediaPlayer audio;
-    private boolean isStopped = false;
-    private boolean videoStop = false;
+    public MediaPlayer audio;
+    public boolean isStopped = false;
+    public boolean videoStop = false;
     private SurfaceView mySurface;
-    private MediaPlayer myPlayer;
+    public MediaPlayer myPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
