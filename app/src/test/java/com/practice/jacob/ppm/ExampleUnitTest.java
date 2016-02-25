@@ -2,6 +2,8 @@ package com.practice.jacob.ppm;
 
 import org.junit.Test;
 
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 /**
@@ -28,7 +30,7 @@ public class ExampleUnitTest {
     @Test //Ryan Satre
     public void doesPlayButton() throws Exception
     {
-        assert(VideoSelect.getAudio().isPlaying());
+        assert(audio.isPlaying() && !isStopped);
     /*
     * Jakob Mueller's test code
     */
