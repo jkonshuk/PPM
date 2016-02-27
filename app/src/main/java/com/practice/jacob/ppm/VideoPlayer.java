@@ -5,6 +5,8 @@ import android.media.MediaPlayer;
 import android.view.SurfaceView;
 import android.view.View;
 
+import java.io.IOException;
+
 /**
  * Created by taser_000 on 2/27/2016.
  */
@@ -20,18 +22,32 @@ public class VideoPlayer {
         myPlayer.setSurface(mySurface.getHolder().getSurface());
 
         if (!myPlayer.isPlaying()) {
-            if (videoStop) {
-                videoStop = false;
+            if (isStopped) {
+                try {
+                    myPlayer.prepare();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                isStopped = false;
             }
             myPlayer.start();
         }
         else {
-            myPlayer.pause();
-            videoStop = true;
+            myPlayer.stop();
+            isStopped = true;
         }
+    }
+
+    public void pause() {
+        myPlayer.stop();
+        isStopped = true;
+    }
+
+    public boolean isPlaying() {
+        return isStopped;
     }
 
     public MediaPlayer myPlayer;
     private SurfaceView mySurface;
-    public boolean videoStop = false;
+    public boolean isStopped = false;
 }

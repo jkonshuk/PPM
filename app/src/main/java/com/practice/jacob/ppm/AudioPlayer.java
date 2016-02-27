@@ -3,6 +3,8 @@ package com.practice.jacob.ppm;
 import android.content.Context;
 import android.media.MediaPlayer;
 
+import java.io.IOException;
+
 /**
  * Created by taser_000 on 2/27/2016.
  */
@@ -15,7 +17,12 @@ public class AudioPlayer {
     public void play() {
         if (!audio.isPlaying()) {
             if (isStopped){
-                //audio = MediaPlayer.create();
+                try {
+                    audio.prepare();
+                    audio.seekTo(0);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 isStopped = false;
             }
             audio.start();
@@ -24,6 +31,15 @@ public class AudioPlayer {
             audio.stop();
             isStopped = true;
         }
+    }
+
+    public void pause () {
+        audio.stop();
+        isStopped = true;
+    }
+
+    public boolean isPlaying() {
+        return isStopped;
     }
 
     public MediaPlayer audio;
