@@ -43,7 +43,7 @@ public class VideoPlayer {
         isStopped = true;
     }
 
-    public boolean isPlaying() {
+    public boolean stopped() {
         return isStopped;
     }
 

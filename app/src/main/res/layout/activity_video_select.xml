@@ -164,7 +164,8 @@
             android:layout_toEndOf="@+id/button"
             android:layout_marginLeft="30dp"
             android:layout_marginStart="30dp"
-            android:onClick="playVideo" />
+            android:onClick="playVideo"
+            android:layout_above="@+id/videoView1" />
 
 
     </RelativeLayout>

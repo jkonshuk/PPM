@@ -21,13 +21,13 @@ public class VideoSelect extends AppCompatActivity {
     }
 
     public void playAudio (View v) {
-        if (video.isPlaying())
+        if (!video.stopped())
             video.pause();
         audio.play();
     }
 
     public void playVideo (View v){
-        if (audio.isPlaying())
+        if (!audio.stopped())
             audio.pause();
         video.play();
     }

@@ -38,7 +38,7 @@ public class AudioPlayer {
         isStopped = true;
     }
 
-    public boolean isPlaying() {
+    public boolean stopped() {
         return isStopped;
     }
 
