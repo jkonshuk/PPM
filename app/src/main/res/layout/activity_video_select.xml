@@ -17,7 +17,7 @@
         android:background="#e8e8e8">
 
         <VideoView
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="150sp"
             android:id="@+id/videoView"
             android:layout_alignParentTop="true"
