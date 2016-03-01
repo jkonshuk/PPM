@@ -6,79 +6,111 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VideoSelect extends AppCompatActivity {
-    private SurfaceView surface;
-    private AudioPlayer audio;
-    private VideoPlayer video;
+    private List<VideoPlayer> videos;
+    private List<AudioPlayer> audios;
+    private List<SurfaceView> surfaces;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_select);
-        surface = (SurfaceView) (findViewById(R.id.videoView));
-        audio = new AudioPlayer(this, R.raw.uchtdorf);
+        initialize();
     }
 
-    public void playAudio (View v) {
-        if (!video.stopped())
-            video.pause();
+    public void playAudio (AudioPlayer audio) {
+        //if (!video.stopped())
+        //    video.pause();
         audio.play();
     }
 
-    public void playVideo (){
-        if (!audio.stopped())
-            audio.pause();
+    public void playVideo (VideoPlayer video){
+        for (VideoPlayer v : videos) {
+            if (!v.stopped())
+                v.pause();
+        }
+        for (AudioPlayer a : audios) {
+            if (!a.stopped())
+                a.pause();
+        }
         video.play();
+    }
+
+    private void initialize() {
+        videos = new ArrayList<>();
+        audios = new ArrayList<>();
+        surfaces = new ArrayList<>();
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView1)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView2)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView3)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView4)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView5)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView6)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView7)));
+        surfaces.add((SurfaceView)(findViewById(R.id.videoView8)));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        videos.add(new VideoPlayer(this, surfaces.get(0), R.raw.patterns_of_light));
+        videos.add(new VideoPlayer(this, surfaces.get(1), R.raw.a_book_of_mormon_story));
+        videos.add(new VideoPlayer(this, surfaces.get(2), R.raw.flecks_of_gold));
+        videos.add(new VideoPlayer(this, surfaces.get(3), R.raw.good_things_to_come));
+        videos.add(new VideoPlayer(this, surfaces.get(4), R.raw.let_us_be_men));
+        videos.add(new VideoPlayer(this, surfaces.get(5), R.raw.mountains_to_climb));
+        videos.add(new VideoPlayer(this, surfaces.get(6), R.raw.the_will_of_god));
+        videos.add(new VideoPlayer(this, surfaces.get(7), R.raw.voice_of_the_spirit));
+        videos.add(new VideoPlayer(this, surfaces.get(8), R.raw.wrong_roads));
     }
 
     public void changeButton (View v){
         Button button = (Button)(findViewById(v.getId()));
         if(button.getText().equals("Audio1"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio2"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio3"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio4"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio5"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio6"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio7"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio8"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Audio9"))
-            button.setText("something else");
+            playAudio(audios.get(0));
         if(button.getText().equals("Video1")) {
-            video = new VideoPlayer(this, surface, R.raw.patterns_of_light);
-            playVideo();
+            playVideo(videos.get(0));
         }
         if(button.getText().equals("Video2")) {
-            video = new VideoPlayer(this, surface, R.raw.a_book_of_mormon_story);
-            playVideo();
+            playVideo(videos.get(1));
         }
         if(button.getText().equals("Video3")) {
-            video = new VideoPlayer(this, surface, R.raw.flecks_of_gold);
-            playVideo();
+            playVideo(videos.get(2));
         }
         if(button.getText().equals("Video4")) {
-            video = new VideoPlayer(this, surface, R.raw.good_things_to_come);
-            playVideo();
+            playVideo(videos.get(3));
         }
         if(button.getText().equals("Video5")) {
-            video = new VideoPlayer(this, surface, R.raw.let_us_be_men);
-            playVideo();
+            playVideo(videos.get(4));
         }
-        if(button.getText().equals("Video6"))
-            video = new VideoPlayer(this, surface, R.raw.patternsoflight);
-        if(button.getText().equals("Video7"))
-            video = new VideoPlayer(this, surface, R.raw.patternsoflight);
-        if(button.getText().equals("Video8"))
-            video = new VideoPlayer(this, surface, R.raw.patternsoflight);
-        if(button.getText().equals("Video9"))
-            video = new VideoPlayer(this, surface, R.raw.patternsoflight);
+        if(button.getText().equals("Video6")) {
+            playVideo(videos.get(5));
+        }
+        if(button.getText().equals("Video7")) {
+            playVideo(videos.get(6));
+        }
+        if(button.getText().equals("Video8")) {
+            playVideo(videos.get(7));
+        }
+        if(button.getText().equals("Video9")) {
+            playVideo(videos.get(8));
+        }
 
     }
 
