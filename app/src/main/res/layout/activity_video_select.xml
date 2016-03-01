@@ -29,7 +29,9 @@
             android:layout_width="fill_parent"
             android:layout_height="180sp"
             android:id="@+id/videoView1"
-            android:layout_below="@+id/Audio1" />
+            android:layout_below="@+id/Audio1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <VideoView
             android:layout_width="fill_parent"
@@ -159,21 +161,21 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video1"
             android:id="@+id/Video1"
             android:layout_alignTop="@+id/Audio1"
             android:layout_toRightOf="@+id/Audio1"
             android:layout_toEndOf="@+id/Audio1"
             android:layout_marginLeft="30dp"
             android:layout_marginStart="30dp"
-            android:onClick="playVideo"
+            android:onClick="changeButton"
             android:layout_above="@+id/videoView1" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video2"
             android:id="@+id/Video2"
             android:onClick="changeButton"
             android:layout_alignTop="@+id/Audio2"
@@ -184,7 +186,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video3"
             android:id="@+id/Video3"
             android:layout_above="@+id/videoView3"
             android:layout_alignLeft="@+id/Video2"
@@ -195,7 +197,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video4"
             android:id="@+id/Video4"
             android:onClick="changeButton"
             android:layout_below="@+id/videoView3"
@@ -206,7 +208,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video5"
             android:id="@+id/Video5"
             android:onClick="changeButton"
             android:layout_above="@+id/videoView5"
