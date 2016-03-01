@@ -260,7 +260,8 @@
             android:onClick="mediaSelect"
             android:layout_below="@+id/videoView7"
             android:layout_alignLeft="@+id/Video7"
-            android:layout_alignStart="@+id/Video7" />
+            android:layout_alignStart="@+id/Video7"
+            android:layout_above="@+id/videoView8" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
