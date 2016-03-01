@@ -82,7 +82,7 @@
             android:id="@+id/Audio1"
             android:layout_below="@+id/videoView"
             android:layout_centerHorizontal="true"
-            android:onClick="playAudio"
+            android:onClick="mediaSelect"
             android:background="@drawable/audio" />
 
         <ImageButton
@@ -92,7 +92,8 @@
             android:id="@+id/Audio2"
             android:layout_below="@+id/videoView1"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <ImageButton
             android:layout_width="35dp"
@@ -101,7 +102,8 @@
             android:id="@+id/Audio3"
             android:layout_below="@+id/videoView2"
             android:layout_alignStart="@+id/Audio2"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <ImageButton
             android:layout_width="35dp"
@@ -110,7 +112,8 @@
             android:id="@+id/Audio4"
             android:layout_below="@+id/videoView3"
             android:layout_alignStart="@+id/Audio3"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <ImageButton
             android:layout_width="35dp"
@@ -119,7 +122,8 @@
             android:id="@+id/Audio5"
             android:layout_below="@+id/videoView4"
             android:layout_alignStart="@+id/Audio4"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <ImageButton
             android:layout_width="35dp"
@@ -128,7 +132,8 @@
             android:id="@+id/Audio6"
             android:layout_below="@+id/videoView5"
             android:layout_alignStart="@+id/Audio5"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <ImageButton
             android:layout_width="35dp"
@@ -137,7 +142,8 @@
             android:id="@+id/Audio7"
             android:layout_below="@+id/videoView6"
             android:layout_alignStart="@+id/Audio6"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <ImageButton
             android:layout_width="35dp"
@@ -146,7 +152,8 @@
             android:id="@+id/Audio8"
             android:layout_below="@+id/videoView7"
             android:layout_alignStart="@+id/Audio7"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <ImageButton
             android:layout_width="35dp"
@@ -155,7 +162,8 @@
             android:id="@+id/Audio9"
             android:layout_below="@+id/videoView8"
             android:layout_alignLeft="@+id/Audio8"
-            android:background="@drawable/audio" />
+            android:background="@drawable/audio"
+            android:onClick="mediaSelect" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -168,7 +176,7 @@
             android:layout_toEndOf="@+id/Audio1"
             android:layout_marginLeft="30dp"
             android:layout_marginStart="30dp"
-            android:onClick="changeButton"
+            android:onClick="mediaSelect"
             android:layout_above="@+id/videoView1" />
 
         <Button
@@ -177,10 +185,11 @@
             android:layout_height="wrap_content"
             android:text="Video2"
             android:id="@+id/Video2"
-            android:onClick="changeButton"
-            android:layout_alignTop="@+id/Audio2"
+            android:onClick="mediaSelect"
+            android:layout_below="@+id/videoView1"
             android:layout_alignLeft="@+id/Video1"
-            android:layout_alignStart="@+id/Video1" />
+            android:layout_alignStart="@+id/Video1"
+            android:layout_above="@+id/videoView2" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -188,10 +197,11 @@
             android:layout_height="wrap_content"
             android:text="Video3"
             android:id="@+id/Video3"
-            android:layout_above="@+id/videoView3"
             android:layout_alignLeft="@+id/Video2"
             android:layout_alignStart="@+id/Video2"
-            android:onClick="changeButton" />
+            android:onClick="mediaSelect"
+            android:layout_above="@+id/videoView3"
+            android:layout_alignTop="@+id/Audio3" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -199,10 +209,11 @@
             android:layout_height="wrap_content"
             android:text="Video4"
             android:id="@+id/Video4"
-            android:onClick="changeButton"
-            android:layout_below="@+id/videoView3"
+            android:onClick="mediaSelect"
             android:layout_alignLeft="@+id/Video3"
-            android:layout_alignStart="@+id/Video3" />
+            android:layout_alignStart="@+id/Video3"
+            android:layout_below="@+id/videoView3"
+            android:layout_alignBottom="@+id/Audio4" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -210,40 +221,43 @@
             android:layout_height="wrap_content"
             android:text="Video5"
             android:id="@+id/Video5"
-            android:onClick="changeButton"
+            android:onClick="mediaSelect"
             android:layout_above="@+id/videoView5"
             android:layout_alignLeft="@+id/Video4"
-            android:layout_alignStart="@+id/Video4" />
+            android:layout_alignStart="@+id/Video4"
+            android:layout_below="@+id/videoView4" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video6"
             android:id="@+id/Video6"
-            android:onClick="changeButton"
+            android:onClick="mediaSelect"
             android:layout_alignTop="@+id/Audio6"
             android:layout_alignLeft="@+id/Video5"
-            android:layout_alignStart="@+id/Video5" />
+            android:layout_alignStart="@+id/Video5"
+            android:layout_above="@+id/videoView6" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video7"
             android:id="@+id/Video7"
-            android:onClick="changeButton"
+            android:onClick="mediaSelect"
             android:layout_below="@+id/videoView6"
             android:layout_alignLeft="@+id/Video6"
-            android:layout_alignStart="@+id/Video6" />
+            android:layout_alignStart="@+id/Video6"
+            android:layout_alignBottom="@+id/Audio7" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video8"
             android:id="@+id/Video8"
-            android:onClick="changeButton"
+            android:onClick="mediaSelect"
             android:layout_below="@+id/videoView7"
             android:layout_alignLeft="@+id/Video7"
             android:layout_alignStart="@+id/Video7" />
@@ -252,10 +266,11 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Video9"
             android:id="@+id/Video9"
-            android:onClick="changeButton"
+            android:onClick="mediaSelect"
             android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/Audio9"
             android:layout_alignLeft="@+id/Video8"
             android:layout_alignStart="@+id/Video8" />
 
