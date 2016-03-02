@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,8 @@ public class VideoSelect extends AppCompatActivity {
     private List<VideoPlayer> videos;
     private List<AudioPlayer> audios;
     private List<SurfaceView> surfaces;
+    private List<ImageButton> audioButtons;
+    private List<Button> videoButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,8 @@ public class VideoSelect extends AppCompatActivity {
         videos = new ArrayList<>();
         audios = new ArrayList<>();
         surfaces = new ArrayList<>();
+        audioButtons = new ArrayList<>();
+        videoButtons = new ArrayList<>();
 
         //SurfaceView Initialization
         surfaces.add((SurfaceView)(findViewById(R.id.videoView)));
@@ -65,6 +70,14 @@ public class VideoSelect extends AppCompatActivity {
 
         //Audio Initialization
         audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.theholyghostasyourcompanion));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
 
         //Video Initialization
         videos.add(new VideoPlayer(this, surfaces.get(0), R.raw.patterns_of_light));
@@ -76,32 +89,44 @@ public class VideoSelect extends AppCompatActivity {
         videos.add(new VideoPlayer(this, surfaces.get(6), R.raw.the_will_of_god));
         videos.add(new VideoPlayer(this, surfaces.get(7), R.raw.voice_of_the_spirit));
         videos.add(new VideoPlayer(this, surfaces.get(8), R.raw.wrong_roads));
+
+        //AudioButton Initialization
+        audioButtons.add((ImageButton)findViewById(R.id.Audio1));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio2));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio3));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio4));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio5));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio6));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio7));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio8));
+        audioButtons.add((ImageButton)findViewById(R.id.Audio9));
+
+        //VideoButton Initialization
+        videoButtons.add((Button)findViewById(R.id.Video1));
+        videoButtons.add((Button)findViewById(R.id.Video2));
+        videoButtons.add((Button)findViewById(R.id.Video3));
+        videoButtons.add((Button)findViewById(R.id.Video4));
+        videoButtons.add((Button)findViewById(R.id.Video5));
+        videoButtons.add((Button)findViewById(R.id.Video6));
+        videoButtons.add((Button)findViewById(R.id.Video7));
+        videoButtons.add((Button)findViewById(R.id.Video8));
+        videoButtons.add((Button)findViewById(R.id.Video9));
+
     }
 
     public void mediaSelect (View v){
-        Button button = (Button)(v);
-
         //Audio Content
-        if(button.getText().equals("Audio1"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio2"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio3"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio4"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio5"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio6"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio7"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio8"))
-            playAudio(audios.get(0));
-        if(button.getText().equals("Audio9"))
-            playAudio(audios.get(0));
+        for (int i = 0; i < audioButtons.size(); ++i)
+            if(v.equals(audioButtons.get(i)))
+              playAudio(audios.get(i));
+
+        //Video Content
+        for (int i = 0; i < videoButtons.size(); ++i)
+            if(v.equals(videoButtons.get(i)))
+                playVideo(videos.get(i));
 
         //Video content
+        /*
         if(button.getText().equals("Video1"))
             playVideo(videos.get(0));
         if(button.getText().equals("Video2"))
@@ -120,5 +145,6 @@ public class VideoSelect extends AppCompatActivity {
             playVideo(videos.get(7));
         if(button.getText().equals("Video9"))
             playVideo(videos.get(8));
+            */
     }
 }
