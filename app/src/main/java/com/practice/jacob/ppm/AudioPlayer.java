@@ -27,8 +27,7 @@ public class AudioPlayer {
             audio.start();
         }
         else {
-            audio.stop();
-            isStopped = true;
+            pause();
         }
     }
 

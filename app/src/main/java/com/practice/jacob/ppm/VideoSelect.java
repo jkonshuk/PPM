@@ -66,17 +66,18 @@ public class VideoSelect extends AppCompatActivity {
         surfaces.add((SurfaceView)(findViewById(R.id.videoView5)));
         surfaces.add((SurfaceView)(findViewById(R.id.videoView6)));
         surfaces.add((SurfaceView)(findViewById(R.id.videoView7)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView8)));
+
 
         //Audio Initialization
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.uchtdorf));
+        audios.add(new AudioPlayer(this, R.raw.patternsoflight));
+        audios.add(new AudioPlayer(this, R.raw.abookofmormonstory));
+        audios.add(new AudioPlayer(this, R.raw.flecksofgold));
+        audios.add(new AudioPlayer(this, R.raw.goodthingstocome));
+        audios.add(new AudioPlayer(this, R.raw.letusbemen));
+        audios.add(new AudioPlayer(this, R.raw.wrongroads));
+        audios.add(new AudioPlayer(this, R.raw.thewillofgod));
+        audios.add(new AudioPlayer(this, R.raw.voiceofthespirit));
+
 
         //Video Initialization
         videos.add(new VideoPlayer(this, surfaces.get(0), R.raw.patterns_of_light));
@@ -84,10 +85,10 @@ public class VideoSelect extends AppCompatActivity {
         videos.add(new VideoPlayer(this, surfaces.get(2), R.raw.flecks_of_gold));
         videos.add(new VideoPlayer(this, surfaces.get(3), R.raw.good_things_to_come));
         videos.add(new VideoPlayer(this, surfaces.get(4), R.raw.let_us_be_men));
-        videos.add(new VideoPlayer(this, surfaces.get(5), R.raw.mountains_to_climb));
+        videos.add(new VideoPlayer(this, surfaces.get(5), R.raw.wrong_roads));
         videos.add(new VideoPlayer(this, surfaces.get(6), R.raw.the_will_of_god));
         videos.add(new VideoPlayer(this, surfaces.get(7), R.raw.voice_of_the_spirit));
-        videos.add(new VideoPlayer(this, surfaces.get(8), R.raw.wrong_roads));
+
 
         //AudioButton Initialization
         audioButtons.add((ImageButton)findViewById(R.id.Audio1));
@@ -98,7 +99,7 @@ public class VideoSelect extends AppCompatActivity {
         audioButtons.add((ImageButton)findViewById(R.id.Audio6));
         audioButtons.add((ImageButton)findViewById(R.id.Audio7));
         audioButtons.add((ImageButton)findViewById(R.id.Audio8));
-        audioButtons.add((ImageButton)findViewById(R.id.Audio9));
+
 
         //VideoButton Initialization
         videoButtons.add((Button)findViewById(R.id.Video1));
@@ -109,8 +110,6 @@ public class VideoSelect extends AppCompatActivity {
         videoButtons.add((Button)findViewById(R.id.Video6));
         videoButtons.add((Button)findViewById(R.id.Video7));
         videoButtons.add((Button)findViewById(R.id.Video8));
-        videoButtons.add((Button)findViewById(R.id.Video9));
-
     }
 
     public void mediaSelect (View v){
@@ -123,27 +122,5 @@ public class VideoSelect extends AppCompatActivity {
         for (int i = 0; i < videoButtons.size(); ++i)
             if(v.equals(videoButtons.get(i)))
                 playVideo(videos.get(i));
-
-        //Video content
-        /*
-        if(button.getText().equals("Video1"))
-            playVideo(videos.get(0));
-        if(button.getText().equals("Video2"))
-            playVideo(videos.get(1));
-        if(button.getText().equals("Video3"))
-            playVideo(videos.get(2));
-        if(button.getText().equals("Video4"))
-            playVideo(videos.get(3));
-        if(button.getText().equals("Video5"))
-            playVideo(videos.get(4));
-        if(button.getText().equals("Video6"))
-            playVideo(videos.get(5));
-        if(button.getText().equals("Video7"))
-            playVideo(videos.get(6));
-        if(button.getText().equals("Video8"))
-            playVideo(videos.get(7));
-        if(button.getText().equals("Video9"))
-            playVideo(videos.get(8));
-            */
     }
 }
