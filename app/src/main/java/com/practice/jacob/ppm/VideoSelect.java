@@ -70,7 +70,6 @@ public class VideoSelect extends AppCompatActivity {
 
         //Audio Initialization
         audios.add(new AudioPlayer(this, R.raw.uchtdorf));
-        audios.add(new AudioPlayer(this, R.raw.theholyghostasyourcompanion));
         audios.add(new AudioPlayer(this, R.raw.uchtdorf));
         audios.add(new AudioPlayer(this, R.raw.uchtdorf));
         audios.add(new AudioPlayer(this, R.raw.uchtdorf));
