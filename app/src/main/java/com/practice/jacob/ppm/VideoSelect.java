@@ -114,12 +114,14 @@ public class VideoSelect extends AppCompatActivity {
     public void mediaSelect (View v){
         //Audio Content
         for (int i = 0; i < audioButtons.size(); ++i)
-            if(v.equals(audioButtons.get(i)))
-              playAudio(audios.get(i));
+            if(v.equals(audioButtons.get(i))) {
+                playAudio(audios.get(i));
+            }
 
         //Video Content
         for (int i = 0; i < videoButtons.size(); ++i)
-            if(v.equals(videoButtons.get(i)))
+            if(v.equals(videoButtons.get(i))) {
                 playVideo(videos.get(i));
+            }
     }
 }

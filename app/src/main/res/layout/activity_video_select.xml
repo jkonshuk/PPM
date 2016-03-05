@@ -25,7 +25,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:onClick="mediaSelect"
-            android:background="@drawable/Patterns_Of_Light" />
+            android:background="@drawable/patterns_of_light" />
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -35,7 +35,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:onClick="mediaSelect"
-            android:background="@drawable/Book_Of_Mormon_Story" />
+            android:background="@drawable/book_of_mormon_story" />
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -51,7 +51,7 @@
             android:id="@+id/Video4"
             android:layout_below="@+id/Audio3"
             android:onClick="mediaSelect"
-            android:background="@drawable/Good_Things_To_Come" />
+            android:background="@drawable/good_things_to_come" />
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -59,7 +59,7 @@
             android:id="@+id/Video5"
             android:layout_below="@+id/Audio4"
             android:onClick="mediaSelect"
-            android:background="@drawable/Let_Us_Be_Men" />
+            android:background="@drawable/let_us_be_men" />
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -67,7 +67,7 @@
             android:id="@+id/Video6"
             android:layout_below="@+id/Audio5"
             android:onClick="mediaSelect"
-            android:background="@drawable/Wrong_Roads" />
+            android:background="@drawable/wrong_roads" />
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -75,7 +75,7 @@
             android:id="@+id/Video7"
             android:layout_below="@+id/Audio6"
             android:onClick="mediaSelect"
-            android:background="@drawable/The_Will_Of_God" />
+            android:background="@drawable/the_will_of_god" />
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -83,7 +83,7 @@
             android:id="@+id/Video8"
             android:layout_below="@+id/Audio7"
             android:onClick="mediaSelect"
-            android:background="@drawable/Voice_Of_The_Spirit"
+            android:background="@drawable/voice_of_the_spirit"
             android:clickable="false" />
 
         <ImageButton
