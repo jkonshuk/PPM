@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class VideoSelect extends AppCompatActivity {
     private List<AudioPlayer> audios;
     private List<SurfaceView> surfaces;
     private List<ImageButton> audioButtons;
-    private List<Button> videoButtons;
+    private List<ImageButton> videoButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +57,14 @@ public class VideoSelect extends AppCompatActivity {
         videoButtons = new ArrayList<>();
 
         //SurfaceView Initialization
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView1)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView2)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView3)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView4)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView5)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView6)));
-        surfaces.add((SurfaceView)(findViewById(R.id.videoView7)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video1)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video2)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video3)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video4)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video5)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video6)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video7)));
+        surfaces.add((SurfaceView)(findViewById(R.id.Video8)));
 
 
         //Audio Initialization
@@ -102,14 +101,14 @@ public class VideoSelect extends AppCompatActivity {
 
 
         //VideoButton Initialization
-        videoButtons.add((Button)findViewById(R.id.Video1));
-        videoButtons.add((Button)findViewById(R.id.Video2));
-        videoButtons.add((Button)findViewById(R.id.Video3));
-        videoButtons.add((Button)findViewById(R.id.Video4));
-        videoButtons.add((Button)findViewById(R.id.Video5));
-        videoButtons.add((Button)findViewById(R.id.Video6));
-        videoButtons.add((Button)findViewById(R.id.Video7));
-        videoButtons.add((Button)findViewById(R.id.Video8));
+        videoButtons.add((ImageButton)findViewById(R.id.Video1));
+        videoButtons.add((ImageButton)findViewById(R.id.Video2));
+        videoButtons.add((ImageButton)findViewById(R.id.Video3));
+        videoButtons.add((ImageButton)findViewById(R.id.Video4));
+        videoButtons.add((ImageButton)findViewById(R.id.Video5));
+        videoButtons.add((ImageButton)findViewById(R.id.Video6));
+        videoButtons.add((ImageButton)findViewById(R.id.Video7));
+        videoButtons.add((ImageButton)findViewById(R.id.Video8));
     }
 
     public void mediaSelect (View v){
