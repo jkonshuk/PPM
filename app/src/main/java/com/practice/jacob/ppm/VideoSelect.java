@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class VideoSelect extends AppCompatActivity {
     private List<AudioPlayer> audios;
     private List<ImageButton> audioButtons;
     private List<ImageButton> videoButtons;
-    private List<Integer> identities;
+    private int[] identities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +36,14 @@ public class VideoSelect extends AppCompatActivity {
                 a.pause();
         }
         Intent intent = new Intent(this,VideoPlayer.class);
-        intent.putExtra("VIDEO",(int)id);
+        intent.putExtra("VIDEO", id);
         startActivity(intent);
     }
 
     private void initialize() {
         audios = new ArrayList<>();
-        identities = new ArrayList<>();
+        identities = new int[8];
+
         audioButtons = new ArrayList<>();
         videoButtons = new ArrayList<>();
 
@@ -81,14 +81,15 @@ public class VideoSelect extends AppCompatActivity {
         videoButtons.add((ImageButton)findViewById(R.id.Video8));
 
         //id Initialization
-        identities.add(R.raw.patterns_of_light);
-        identities.add(R.raw.a_book_of_mormon_story);
-        identities.add(R.raw.flecks_of_gold);
-        identities.add(R.raw.good_things_to_come);
-        identities.add(R.raw.let_us_be_men);
-        identities.add(R.raw.wrong_roads);
-        identities.add(R.raw.the_will_of_god);
-        identities.add(R.raw.voice_of_the_spirit);
+        identities[0] = (R.raw.patterns_of_light);
+        identities[1] = (R.raw.a_book_of_mormon_story);
+        identities[2] = (R.raw.flecks_of_gold);
+        identities[3] = (R.raw.good_things_to_come);
+        identities[4] = (R.raw.let_us_be_men);
+        identities[5] = (R.raw.wrong_roads);
+        identities[6] = (R.raw.the_will_of_god);
+        identities[7] = (R.raw.voice_of_the_spirit);
+
     }
 
     public void mediaSelect (View v){
@@ -101,7 +102,7 @@ public class VideoSelect extends AppCompatActivity {
         //Video Content
         for (int i = 0; i < videoButtons.size(); ++i)
             if(v.equals(videoButtons.get(i))) {
-                playVideo(identities.get(i));
+                playVideo(identities[i]);
             }
     }
 }
