@@ -1,8 +1,8 @@
 package com.practice.jacob.ppm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -10,11 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VideoSelect extends AppCompatActivity {
-    private List<VideoPlayer> videos;
     private List<AudioPlayer> audios;
-    private List<SurfaceView> surfaces;
     private List<ImageButton> audioButtons;
     private List<ImageButton> videoButtons;
+    private List<Integer> identities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +23,6 @@ public class VideoSelect extends AppCompatActivity {
     }
 
     public void playAudio (AudioPlayer audio) {
-        for (VideoPlayer v : videos) {
-            if (!v.stopped())
-                v.pause();
-        }
         for (AudioPlayer a : audios) {
             if (!a.stopped())
                 if (!a.equals(audio))
@@ -36,35 +31,21 @@ public class VideoSelect extends AppCompatActivity {
         audio.play();
     }
 
-    public void playVideo (VideoPlayer video){
-        for (VideoPlayer v : videos) {
-            if (!v.stopped())
-                if(!v.equals(video))
-                    v.pause();
-        }
+    public void playVideo (Integer id){
         for (AudioPlayer a : audios) {
             if (!a.stopped())
                 a.pause();
         }
-        video.play();
+        Intent intent = new Intent(this,VideoPlayer.class);
+        intent.putExtra("VIDEO",(int)id);
+        startActivity(intent);
     }
 
     private void initialize() {
-        videos = new ArrayList<>();
         audios = new ArrayList<>();
-        surfaces = new ArrayList<>();
+        identities = new ArrayList<>();
         audioButtons = new ArrayList<>();
         videoButtons = new ArrayList<>();
-
-        //SurfaceView Initialization
-        surfaces.add((SurfaceView)(findViewById(R.id.Video1)));
-        surfaces.add((SurfaceView)(findViewById(R.id.Video2)));
-        surfaces.add((SurfaceView)(findViewById(R.id.Video3)));
-        surfaces.add((SurfaceView)(findViewById(R.id.Video4)));
-        surfaces.add((SurfaceView)(findViewById(R.id.Video5)));
-        surfaces.add((SurfaceView)(findViewById(R.id.Video6)));
-        surfaces.add((SurfaceView)(findViewById(R.id.Video7)));
-        surfaces.add((SurfaceView)(findViewById(R.id.Video8)));
 
 
         //Audio Initialization
@@ -76,17 +57,6 @@ public class VideoSelect extends AppCompatActivity {
         audios.add(new AudioPlayer(this, R.raw.wrongroads));
         audios.add(new AudioPlayer(this, R.raw.thewillofgod));
         audios.add(new AudioPlayer(this, R.raw.voiceofthespirit));
-
-
-        //Video Initialization
-        videos.add(new VideoPlayer(this, surfaces.get(0), R.raw.patterns_of_light));
-        videos.add(new VideoPlayer(this, surfaces.get(1), R.raw.a_book_of_mormon_story));
-        videos.add(new VideoPlayer(this, surfaces.get(2), R.raw.flecks_of_gold));
-        videos.add(new VideoPlayer(this, surfaces.get(3), R.raw.good_things_to_come));
-        videos.add(new VideoPlayer(this, surfaces.get(4), R.raw.let_us_be_men));
-        videos.add(new VideoPlayer(this, surfaces.get(5), R.raw.wrong_roads));
-        videos.add(new VideoPlayer(this, surfaces.get(6), R.raw.the_will_of_god));
-        videos.add(new VideoPlayer(this, surfaces.get(7), R.raw.voice_of_the_spirit));
 
 
         //AudioButton Initialization
@@ -109,6 +79,16 @@ public class VideoSelect extends AppCompatActivity {
         videoButtons.add((ImageButton)findViewById(R.id.Video6));
         videoButtons.add((ImageButton)findViewById(R.id.Video7));
         videoButtons.add((ImageButton)findViewById(R.id.Video8));
+
+        //id Initialization
+        identities.add(R.raw.patterns_of_light);
+        identities.add(R.raw.a_book_of_mormon_story);
+        identities.add(R.raw.flecks_of_gold);
+        identities.add(R.raw.good_things_to_come);
+        identities.add(R.raw.let_us_be_men);
+        identities.add(R.raw.wrong_roads);
+        identities.add(R.raw.the_will_of_god);
+        identities.add(R.raw.voice_of_the_spirit);
     }
 
     public void mediaSelect (View v){
@@ -121,7 +101,7 @@ public class VideoSelect extends AppCompatActivity {
         //Video Content
         for (int i = 0; i < videoButtons.size(); ++i)
             if(v.equals(videoButtons.get(i))) {
-                playVideo(videos.get(i));
+                playVideo(identities.get(i));
             }
     }
 }
