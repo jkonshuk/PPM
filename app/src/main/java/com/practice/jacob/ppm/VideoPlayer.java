@@ -12,17 +12,21 @@ import java.io.IOException;
  * Created by taser_000 on 2/27/2016.
  */
 public class VideoPlayer extends AppCompatActivity {
+    private MediaPlayer myPlayer;
+    private SurfaceView mySurface;
+    private boolean isStopped = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
-        myPlayer = MediaPlayer.create(this, intent.getIntExtra("VIDEO", 0));
-        mySurface = (SurfaceView)(findViewById(R.id.videoView));
+        Intent intent = getIntent();
+        mySurface = (SurfaceView)(findViewById(R.id.surfaceView));
+        myPlayer = MediaPlayer.create(this, intent.getIntExtra("VIDEO", R.raw.a_book_of_mormon_story));
         play();
     }
 
-    public void play () {
+    public void play() {
         myPlayer.setDisplay(mySurface.getHolder());
         myPlayer.setSurface(mySurface.getHolder().getSurface());
 
@@ -38,17 +42,8 @@ public class VideoPlayer extends AppCompatActivity {
             myPlayer.start();
         }
         else {
-            pause();
+            myPlayer.stop();
+            isStopped = true;
         }
     }
-
-    public void pause() {
-        myPlayer.stop();
-        isStopped = true;
-    }
-
-    private MediaPlayer myPlayer;
-    private SurfaceView mySurface;
-    private Intent intent = getIntent();
-    private boolean isStopped = false;
 }

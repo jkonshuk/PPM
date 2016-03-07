@@ -30,12 +30,12 @@ public class VideoSelect extends AppCompatActivity {
         audio.play();
     }
 
-    public void playVideo (Integer id){
+    public void playVideo (int id){
         for (AudioPlayer a : audios) {
             if (!a.stopped())
                 a.pause();
         }
-        Intent intent = new Intent(this,VideoPlayer.class);
+        Intent intent = new Intent(this, VideoPlayer.class);
         intent.putExtra("VIDEO", id);
         startActivity(intent);
     }

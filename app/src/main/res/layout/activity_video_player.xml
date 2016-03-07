@@ -8,11 +8,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.practice.jacob.ppm.VideoPlayer">
+    tools:context="com.practice.jacob.ppm.VideoPlayer"
+    android:weightSum="1">
 
-    <VideoView
+    <SurfaceView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/videoView"
-        android:layout_gravity="center" />
+        android:id="@+id/surfaceView" />
 </LinearLayout>
