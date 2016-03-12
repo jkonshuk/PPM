@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".FullScreenVideo"
                   android:screenOrientation="landscape"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

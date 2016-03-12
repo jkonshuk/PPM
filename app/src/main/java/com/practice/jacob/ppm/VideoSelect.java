@@ -38,7 +38,7 @@ public class VideoSelect extends AppCompatActivity {
             if (!a.stopped())
                 a.pause();
         }
-        Intent intent = new Intent(this, VideoPlayer.class);
+        Intent intent = new Intent(this, FullScreenVideo.class);
         intent.putExtra("VIDEO", id);
         startActivity(intent);
     }
