@@ -18,6 +18,4 @@ public class FullScreenVideo extends AppCompatActivity {
         myVid.play();
     }
 
-    public void play(){
-    }
 }

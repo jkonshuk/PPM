@@ -10,8 +10,8 @@ import java.io.IOException;
  * Created by Jacob Konshuk on 2/27/2016.
  */
 public class VideoPlayer {
-    private SurfaceView mySurface;
-    private MediaPlayer myPlayer;
+    private static SurfaceView mySurface;
+    private static MediaPlayer myPlayer;
     private boolean isStopped = false;
 
     public VideoPlayer (Context context, SurfaceView surface, int resource) {
