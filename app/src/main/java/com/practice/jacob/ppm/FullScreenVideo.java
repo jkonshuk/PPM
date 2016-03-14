@@ -59,7 +59,6 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         isStopped = true;
     }
 
-
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         myVid.setDisplay(holder);
