@@ -46,10 +46,8 @@ public class VideoSelect extends AppCompatActivity {
     private void initialize() {
         audios = new ArrayList<>();
         identities = new int[8];
-
         audioButtons = new ArrayList<>();
         videoButtons = new ArrayList<>();
-
 
         //Audio Initialization
         audios.add(new AudioPlayer(this, R.raw.patternsoflight));
@@ -61,7 +59,6 @@ public class VideoSelect extends AppCompatActivity {
         audios.add(new AudioPlayer(this, R.raw.thewillofgod));
         audios.add(new AudioPlayer(this, R.raw.voiceofthespirit));
 
-
         //AudioButton Initialization
         audioButtons.add((ImageButton)findViewById(R.id.Audio1));
         audioButtons.add((ImageButton)findViewById(R.id.Audio2));
@@ -71,7 +68,6 @@ public class VideoSelect extends AppCompatActivity {
         audioButtons.add((ImageButton)findViewById(R.id.Audio6));
         audioButtons.add((ImageButton)findViewById(R.id.Audio7));
         audioButtons.add((ImageButton)findViewById(R.id.Audio8));
-
 
         //VideoButton Initialization
         videoButtons.add((ImageButton)findViewById(R.id.Video1));
@@ -92,7 +88,6 @@ public class VideoSelect extends AppCompatActivity {
         identities[5] = (R.raw.wrong_roads);
         identities[6] = (R.raw.the_will_of_god);
         identities[7] = (R.raw.voice_of_the_spirit);
-
     }
 
     public void mediaSelect (View v){
