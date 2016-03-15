@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import java.io.IOException;
 
-
 public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.Callback {
     private MediaPlayer myVid;
     private SurfaceView surface;
