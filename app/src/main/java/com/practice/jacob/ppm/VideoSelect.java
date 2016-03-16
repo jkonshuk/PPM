@@ -113,7 +113,7 @@ public class VideoSelect extends AppCompatActivity {
 
     /**
      * mediaSelect will choose what videos and audio's will be played.
-     * This will be desided based on the initialized id.
+     * This will be decided based on the initialized id.
      * @param v is passed in from onclick.
      */
     public void mediaSelect (View v){
