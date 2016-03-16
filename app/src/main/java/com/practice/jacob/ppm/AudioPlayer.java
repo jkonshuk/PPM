@@ -9,10 +9,19 @@ import java.io.IOException;
  */
 public class AudioPlayer {
 
+    /**
+     * AudioPlayer creates a MediaPlayer with its constructor
+     * @param context of where video was called
+     * @param resource audio file to be played
+     */
     public AudioPlayer (Context context, int resource){
         audio = MediaPlayer.create(context, resource);
-    }
+}
 
+    /**
+     * checks conditions of the MediaPlayer if playable it plays
+     * the audio
+     */
     public void play() {
         if (!audio.isPlaying()) {
             if (isStopped){
@@ -31,11 +40,18 @@ public class AudioPlayer {
         }
     }
 
+    /**
+     * stops audio if sets isStopped to true
+     */
     public void pause () {
         audio.stop();
         isStopped = true;
     }
 
+    /**
+     * checks to see if video is stopped
+     * @return boolean value of isStopped
+     */
     public boolean stopped() {
         return isStopped;
     }
