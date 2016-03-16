@@ -8,6 +8,12 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the main activity for the application and contains methods
+ * for choosing what media will play based on what is clicked on the main
+ * layout. It also determines how media will be played whether on the spot
+ * or in a different activity.
+ */
 public class VideoSelect extends AppCompatActivity {
     //member variables
     private List<AudioPlayer> audios;
@@ -16,8 +22,8 @@ public class VideoSelect extends AppCompatActivity {
     private int[] identities;
 
     /**
-     * on create will call initialize to set up all buttons.
-     * @param savedInstanceState autamaitcally generated code for activity.
+     * On create will call initialize to set up all buttons.
+     * @param savedInstanceState automatically generated code for activity.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,7 @@ public class VideoSelect extends AppCompatActivity {
     /**
      * The play audio takes the audio and plays it. It will check to see if
      * any other audios are playing, if so, they will be stopped.
-     * @param audio recieves the audio to play from media select
+     * @param audio receives the audio to play from media select
      */
     private void playAudio (AudioPlayer audio) {
         //stop all other audio players
@@ -44,7 +50,7 @@ public class VideoSelect extends AppCompatActivity {
     /**
      * play video creates a new intent and starts the fullscreen video class.
      * if there are other audio's being played it will stop those.
-     * @param id The id recieved by media select
+     * @param id The id received by media select
      */
     private void playVideo (int id){
         //stop any audio that is playing
