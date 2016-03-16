@@ -15,6 +15,10 @@ public class VideoSelect extends AppCompatActivity {
     private List<ImageButton> videoButtons;
     private int[] identities;
 
+    /**
+     * on create will call initialize to set up all buttons.
+     * @param savedInstanceState autamaitcally generated code for activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +26,11 @@ public class VideoSelect extends AppCompatActivity {
         initialize();
     }
 
+    /**
+     * The play audio takes the audio and plays it. It will check to see if
+     * any other audios are playing, if so, they will be stopped.
+     * @param audio recieves the audio to play from media select
+     */
     private void playAudio (AudioPlayer audio) {
         //stop all other audio players
         for (AudioPlayer a : audios) {
@@ -31,7 +40,12 @@ public class VideoSelect extends AppCompatActivity {
         }
         audio.play();
     }
-
+    
+    /**
+     * play video creates a new intent and starts the fullscreen video class.
+     * if there are other audio's being played it will stop those.
+     * @param id The id recieved by media select
+     */
     private void playVideo (int id){
         //stop any audio that is playing
         for (AudioPlayer a : audios) {
@@ -45,6 +59,10 @@ public class VideoSelect extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Initialize will initialize the buttons the audio files and videos. This
+     * Will help the program know what video or sound to play on button clicked
+     */
     private void initialize() {
         //need to implement the List interface
         audios = new ArrayList<>();
@@ -94,11 +112,9 @@ public class VideoSelect extends AppCompatActivity {
     }
 
     /**
-     * This function chooses whether to call playVideo or playAudio
-     * based on the view that was clicked from the main screen. Both
-     * loops are based on the id of the View pressed and maps the correct
-     * content with the View that was pressed.
-     * @param v The view passed from onClick
+     * mediaSelect will choose what videos and audio's will be played.
+     * This will be desided based on the initialized id.
+     * @param v is passed in from onclick.
      */
     public void mediaSelect (View v){
         //Audio Content
