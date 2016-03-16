@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VideoSelect extends AppCompatActivity {
+    //member variables
     private List<AudioPlayer> audios;
     private List<ImageButton> audioButtons;
     private List<ImageButton> videoButtons;
@@ -21,7 +22,8 @@ public class VideoSelect extends AppCompatActivity {
         initialize();
     }
 
-    public void playAudio (AudioPlayer audio) {
+    private void playAudio (AudioPlayer audio) {
+        //stop all other audio players
         for (AudioPlayer a : audios) {
             if (!a.stopped())
                 if (!a.equals(audio))
@@ -30,17 +32,21 @@ public class VideoSelect extends AppCompatActivity {
         audio.play();
     }
 
-    public void playVideo (int id){
+    private void playVideo (int id){
+        //stop any audio that is playing
         for (AudioPlayer a : audios) {
             if (!a.stopped())
                 a.pause();
         }
+
+        //videos are played in a different activity and needs the id of the button pressed
         Intent intent = new Intent(this, FullScreenVideo.class);
         intent.putExtra("VIDEO", id);
         startActivity(intent);
     }
 
     private void initialize() {
+        //need to implement the List interface
         audios = new ArrayList<>();
         identities = new int[8];
         audioButtons = new ArrayList<>();
@@ -87,14 +93,23 @@ public class VideoSelect extends AppCompatActivity {
         identities[7] = (R.raw.voice_of_the_spirit);
     }
 
+    /**
+     * This function chooses whether to call playVideo or playAudio
+     * based on the view that was clicked from the main screen. Both
+     * loops are based on the id of the View pressed and maps the correct
+     * content with the View that was pressed.
+     * @param v The view passed from onClick
+     */
     public void mediaSelect (View v){
         //Audio Content
+        //compare the button pressed against each audio button to see which file needs to be played
         for (int i = 0; i < audioButtons.size(); ++i)
             if(v.equals(audioButtons.get(i))) {
                 playAudio(audios.get(i));
             }
 
         //Video Content
+        //compare the button pressed against each video button to see which file needs to be played
         for (int i = 0; i < videoButtons.size(); ++i)
             if(v.equals(videoButtons.get(i))) {
                 playVideo(identities[i]);

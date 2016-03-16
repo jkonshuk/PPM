@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
-        android:background="#ffffff"
+        android:background="#00ffffff"
         android:onClick="play"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
