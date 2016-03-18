@@ -4,9 +4,6 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import java.io.IOException;
 
-/**
- * Created by taser_000 on 2/27/2016.
- */
 public class AudioPlayer {
 
     /**
@@ -56,6 +53,6 @@ public class AudioPlayer {
         return isStopped;
     }
 
-    public MediaPlayer audio;
-    public boolean isStopped = false;
+    private MediaPlayer audio;
+    private boolean isStopped = false;
 }

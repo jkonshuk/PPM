@@ -8,15 +8,22 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the main activity for the application and contains methods
+ * for choosing what media will play based on what is clicked on the main
+ * layout. It also determines how media will be played whether on the spot
+ * or in a different activity.
+ */
 public class VideoSelect extends AppCompatActivity {
+    //member variables
     private List<AudioPlayer> audios;
     private List<ImageButton> audioButtons;
     private List<ImageButton> videoButtons;
     private int[] identities;
 
     /**
-     * on create will call initialize to set up all buttons.
-     * @param savedInstanceState autamaitcally generated code for activity.
+     * On create will call initialize to set up all buttons.
+     * @param savedInstanceState automatically generated code for activity.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +35,10 @@ public class VideoSelect extends AppCompatActivity {
     /**
      * The play audio takes the audio and plays it. It will check to see if
      * any other audios are playing, if so, they will be stopped.
-     * @param audio recieves the audio to play from media select
+     * @param audio receives the audio to play from media select
      */
-    public void playAudio (AudioPlayer audio) {
+    private void playAudio (AudioPlayer audio) {
+        //stop all other audio players
         for (AudioPlayer a : audios) {
             if (!a.stopped())
                 if (!a.equals(audio))
@@ -38,17 +46,20 @@ public class VideoSelect extends AppCompatActivity {
         }
         audio.play();
     }
-
+    
     /**
      * play video creates a new intent and starts the fullscreen video class.
      * if there are other audio's being played it will stop those.
-     * @param id The id recieved by media select
+     * @param id The id received by media select
      */
-    public void playVideo (int id){
+    private void playVideo (int id){
+        //stop any audio that is playing
         for (AudioPlayer a : audios) {
             if (!a.stopped())
                 a.pause();
         }
+
+        //videos are played in a different activity and needs the id of the button pressed
         Intent intent = new Intent(this, FullScreenVideo.class);
         intent.putExtra("VIDEO", id);
         startActivity(intent);
@@ -59,6 +70,7 @@ public class VideoSelect extends AppCompatActivity {
      * Will help the program know what video or sound to play on button clicked
      */
     private void initialize() {
+        //need to implement the List interface
         audios = new ArrayList<>();
         identities = new int[8];
         audioButtons = new ArrayList<>();
@@ -107,17 +119,19 @@ public class VideoSelect extends AppCompatActivity {
 
     /**
      * mediaSelect will choose what videos and audio's will be played.
-     * This will be desided based on the initialized id.
+     * This will be decided based on the initialized id.
      * @param v is passed in from onclick.
      */
     public void mediaSelect (View v){
         //Audio Content
+        //compare the button pressed against each audio button to see which file needs to be played
         for (int i = 0; i < audioButtons.size(); ++i)
             if(v.equals(audioButtons.get(i))) {
                 playAudio(audios.get(i));
             }
 
         //Video Content
+        //compare the button pressed against each video button to see which file needs to be played
         for (int i = 0; i < videoButtons.size(); ++i)
             if(v.equals(videoButtons.get(i))) {
                 playVideo(identities[i]);
