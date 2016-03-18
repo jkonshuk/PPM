@@ -163,9 +163,10 @@
             android:layout_height="35dp"
             android:id="@+id/admin"
             android:background="@drawable/admin"
-            android:layout_below="@+id/Audio8"
+            android:layout_below="@+id/Video8"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="adminOption" />
 
 
     </RelativeLayout>

@@ -30,6 +30,11 @@ public class VideoSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_select);
         initialize();
+
+        //Check condition to exit app
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
     }
 
     /**
@@ -137,4 +142,10 @@ public class VideoSelect extends AppCompatActivity {
                 playVideo(identities[i]);
             }
     }
+
+    public void adminOption (View v){
+        Intent intent = new Intent(this, Admin.class);
+        startActivity(intent);
+    }
+
 }
