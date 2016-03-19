@@ -13,7 +13,7 @@ public class Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-
+        numAvailable = 3;
     }
 
     public void goBack (View v){
@@ -22,8 +22,12 @@ public class Admin extends AppCompatActivity {
 
     public void onClick(View v) {
         EditText passwordField = (EditText) (findViewById(R.id.password));
-
-        if (passwordField.getText().toString().equals(adminPassword)) {
+        TextView text = (TextView) (findViewById(R.id.textView));
+        numAvailable--;
+        if (numAvailable <= 0) {
+            text.setText ("Number of tries exceded.. Please try again later..");
+        }
+        else if(passwordField.getText().toString().equals(adminPassword)) {
             Intent intent = new Intent(getApplicationContext(), VideoSelect.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("EXIT", true);
@@ -31,11 +35,11 @@ public class Admin extends AppCompatActivity {
             finish();
         } else {
             passwordField.setText("");
-            TextView text = (TextView) (findViewById(R.id.textView));
-            text.setText("Incorrect password please try again:");
+            text.setText("Incorrect password please try again: Number of tries Available" + numAvailable);
             text.setTextColor(0xFFFC0101);
         }
     }
 
     private String adminPassword = "PPMexit";
+    private int numAvailable;
 }
