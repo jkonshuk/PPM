@@ -9,6 +9,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.MediaController;
 
 import java.io.IOException;
 
@@ -18,13 +19,12 @@ import java.io.IOException;
  * and SurfaceDestroyed methods to assure that the Surface (VideoView) used stays in scope for the duration
  * of the activity.
  */
-public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.Callback {
+public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.Callback, MediaController.MediaPlayerControl, MediaPlayer.OnPreparedListener {
     //member variables
     private MediaPlayer myVid;
     private SurfaceView surface;
     private SurfaceHolder holder;
-    private Button button;
-    private boolean isStopped = false;
+    private MediaController controller;
 
     /**
      * This method keeps the screen on for the duration of the activity
@@ -39,7 +39,7 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_screen_video);
         initialize();
-        play(button);
+        start();
     }
 
     private void initialize(){
@@ -47,38 +47,8 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         surface = (SurfaceView)(findViewById(R.id.videoView));
         holder = surface.getHolder();
         holder.addCallback(this);
+        controller = new MediaController(this);
         myVid = MediaPlayer.create(this, intent.getIntExtra("VIDEO", R.raw.a_book_of_mormon_story));
-        button = (Button)(findViewById(R.id.button));
-    }
-
-    /**
-     * The play function is the heart of this class's functionality. It controls when
-     * the video plays and needs to be an onClick function so it can be called to pause the
-     * video or play the video if it is paused.
-     * @param v not used in the logic but needed to be an onClick function
-     */
-    public void play(View v) {
-        //if the video is stopped prepare it to be played and play it
-        if (!myVid.isPlaying()) {
-            if (isStopped) {
-                try {
-                    myVid.prepare();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                isStopped = false;
-            }
-            //make sure the button is invisible
-            myVid.start();
-        }
-        else {
-            pause();
-        }
-    }
-
-    private void pause(){
-        myVid.stop();
-        isStopped = true;
     }
 
     /**
@@ -116,5 +86,66 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         myVid.setDisplay(null);
         myVid.setSurface(null);
         myVid.release();
+    }
+
+    @Override
+    public void start() {
+        myVid.start();
+    }
+
+    @Override
+    public void pause(){
+        myVid.pause();
+    }
+
+    @Override
+    public int getDuration() {
+        return myVid.getDuration();
+    }
+
+    @Override
+    public int getCurrentPosition() {
+        return myVid.getCurrentPosition();
+    }
+
+    @Override
+    public void seekTo(int pos) {
+        myVid.seekTo(pos);
+    }
+
+    @Override
+    public boolean isPlaying() {
+        return myVid.isPlaying();
+    }
+
+    @Override
+    public int getBufferPercentage() {
+        return 0;
+    }
+
+    @Override
+    public boolean canPause() {
+        return true;
+    }
+
+    @Override
+    public boolean canSeekBackward() {
+        return true;
+    }
+
+    @Override
+    public boolean canSeekForward() {
+        return true;
+    }
+
+    @Override
+    public int getAudioSessionId() {
+        return 0;
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        controller.setMediaPlayer(this);
+        controller.setAnchorView(surface);
     }
 }
