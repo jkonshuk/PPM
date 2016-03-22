@@ -4,16 +4,11 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.MediaController;
-
-import java.io.IOException;
 
 /**
  * This class handles all of the video playing in a separate activity from the main activity
@@ -61,6 +56,13 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         myVid.setOnPreparedListener(this);
     }
 
+    public void showMC(View v) {
+        if (controller.isShowing()) {
+            controller.hide();
+        } else {
+            controller.show();
+        }
+    }
     /**
      * In this class this method is used to keep the surface in scope for use in the
      * mediaPlayer. It is necessary to do anything we need with the surface between the
