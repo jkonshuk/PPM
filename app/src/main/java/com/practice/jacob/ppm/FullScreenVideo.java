@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -43,12 +45,20 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
     }
 
     private void initialize(){
+        //this is needed to get the id passed from the VideoSelect activity
         Intent intent = getIntent();
+
+        //The surface needs to be declared and the callback for creation set to this class
         surface = (SurfaceView)(findViewById(R.id.videoView));
         holder = surface.getHolder();
         holder.addCallback(this);
+
+        //play, pause, seek, and other functionality for controlling the video
         controller = new MediaController(this);
+
+        //create puts mediaPlayer in prepared state and the listener needs to be set to this class
         myVid = MediaPlayer.create(this, intent.getIntExtra("VIDEO", R.raw.a_book_of_mormon_story));
+        myVid.setOnPreparedListener(this);
     }
 
     /**
@@ -88,64 +98,64 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         myVid.release();
     }
 
+    /**
+     * Overrides for media player controls
+     */
     @Override
     public void start() {
         myVid.start();
     }
-
     @Override
     public void pause(){
         myVid.pause();
     }
-
     @Override
     public int getDuration() {
         return myVid.getDuration();
     }
-
     @Override
     public int getCurrentPosition() {
         return myVid.getCurrentPosition();
     }
-
     @Override
     public void seekTo(int pos) {
         myVid.seekTo(pos);
     }
-
     @Override
     public boolean isPlaying() {
         return myVid.isPlaying();
     }
-
     @Override
     public int getBufferPercentage() {
         return 0;
     }
-
     @Override
     public boolean canPause() {
         return true;
     }
-
     @Override
     public boolean canSeekBackward() {
         return true;
     }
-
     @Override
     public boolean canSeekForward() {
         return true;
     }
-
     @Override
     public int getAudioSessionId() {
         return 0;
     }
 
+    /**
+     * Override for on prepared listener
+     * @param mp
+     */
     @Override
     public void onPrepared(MediaPlayer mp) {
         controller.setMediaPlayer(this);
         controller.setAnchorView(surface);
+        controller.setEnabled(true);
+        controller.show();
     }
+
 }

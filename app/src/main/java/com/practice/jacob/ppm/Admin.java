@@ -25,7 +25,7 @@ public class Admin extends AppCompatActivity {
         TextView text = (TextView) (findViewById(R.id.textView));
         numAvailable--;
         if (numAvailable <= 0) {
-            text.setText ("Number of tries exceded.. Please try again later..");
+            text.setText ("Number of tries exceeded.. Please try again later..");
         }
         else if(passwordField.getText().toString().equals(adminPassword)) {
             Intent intent = new Intent(getApplicationContext(), VideoSelect.class);
@@ -35,7 +35,7 @@ public class Admin extends AppCompatActivity {
             finish();
         } else {
             passwordField.setText("");
-            text.setText("Incorrect password please try again: Number of tries Available" + numAvailable);
+            text.setText("Incorrect password please try again: Number of tries Available " + numAvailable);
             text.setTextColor(0xFFFC0101);
         }
     }
