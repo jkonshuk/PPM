@@ -3,6 +3,7 @@ package com.practice.jacob.ppm;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +21,18 @@ public class Admin extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_HOME) {
+            //We will do nothing in this case.
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            //we will also do nothing
+        }
+        return false;
+    }
+
     public void onClick(View v) {
         EditText passwordField = (EditText) (findViewById(R.id.password));
         TextView text = (TextView) (findViewById(R.id.textView));
@@ -35,7 +48,7 @@ public class Admin extends AppCompatActivity {
             finish();
         } else {
             passwordField.setText("");
-            text.setText("Incorrect password please try again: Number of tries Available" + numAvailable);
+            text.setText("Incorrect password please try again: Number of tries available" + numAvailable);
             text.setTextColor(0xFFFC0101);
         }
     }

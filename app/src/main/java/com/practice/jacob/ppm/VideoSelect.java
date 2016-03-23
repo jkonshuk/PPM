@@ -1,10 +1,16 @@
 package com.practice.jacob.ppm;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +41,26 @@ public class VideoSelect extends AppCompatActivity {
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
+
+        //Disable the home button
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+
+    /**
+     * this will simply disable the user from using the back button.
+     * This function will only be used in this activities because back
+     * button in all other activities will bring it back to the main activity
+     * this methood will also take care of the search bottons
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            //Toast.makeText(this, "You pressed the back button!", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     /**

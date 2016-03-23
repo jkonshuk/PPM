@@ -19,8 +19,8 @@ public class StartMyServiceAtBootReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
-        Intent myIntent = new Intent(context, VideoSelect.class);
-        myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(myIntent);
+//        Intent myIntent = new Intent(context, VideoSelect.class);
+//        myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(myIntent);
     }
 }
