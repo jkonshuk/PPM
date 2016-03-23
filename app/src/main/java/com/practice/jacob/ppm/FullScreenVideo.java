@@ -101,8 +101,6 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         myVid.release();
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Overrides for media player controls
      */
@@ -162,6 +160,5 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         controller.setEnabled(true);
         controller.show();
     }
->>>>>>> a0d49554621c9e09318dfc24584fa5f53f36e75c
 
 }
