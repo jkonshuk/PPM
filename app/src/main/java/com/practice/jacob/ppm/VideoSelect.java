@@ -67,7 +67,7 @@ public class VideoSelect extends AppCompatActivity {
     }
 
     /**
-     * Locks down recent apps button
+     * Lock down recent apps button
      */
     @Override
     protected void onPause() {
