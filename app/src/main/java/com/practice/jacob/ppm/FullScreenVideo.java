@@ -1,5 +1,7 @@
 package com.practice.jacob.ppm;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -101,8 +103,6 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         myVid.release();
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Overrides for media player controls
      */
@@ -162,6 +162,15 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         controller.setEnabled(true);
         controller.show();
     }
->>>>>>> a0d49554621c9e09318dfc24584fa5f53f36e75c
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ActivityManager activityManager = (ActivityManager) getApplicationContext()
+                .getSystemService(Context.ACTIVITY_SERVICE);
+
+        activityManager.moveTaskToFront(getTaskId(), 0);
+    }
 
 }

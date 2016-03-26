@@ -1,5 +1,7 @@
 package com.practice.jacob.ppm;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -60,7 +62,22 @@ public class VideoSelect extends AppCompatActivity {
             //Toast.makeText(this, "You pressed the back button!", Toast.LENGTH_LONG).show();
             return true;
         }
+        if(keyCode == KeyEvent.KEYCODE_HOME)
+        {
+            //DO NOTHING
+            return true;
+        }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ActivityManager activityManager = (ActivityManager) getApplicationContext()
+                .getSystemService(Context.ACTIVITY_SERVICE);
+
+        activityManager.moveTaskToFront(getTaskId(), 0);
     }
 
     /**

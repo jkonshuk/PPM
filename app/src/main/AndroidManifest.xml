@@ -3,6 +3,7 @@
     package="com.practice.jacob.ppm">
     //give permission to start the app on startup
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +28,8 @@
         <activity
             android:name=".FullScreenVideo"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
 
         <receiver
             android:name=".StartMyServiceAtBootReceiver"
@@ -37,7 +39,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Admin"></activity>
+        <activity android:name=".Admin">
+        </activity>
     </application>
 
 </manifest>
