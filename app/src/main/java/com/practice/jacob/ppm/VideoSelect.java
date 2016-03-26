@@ -70,6 +70,9 @@ public class VideoSelect extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * Locks down recent apps button
+     */
     @Override
     protected void onPause() {
         super.onPause();
