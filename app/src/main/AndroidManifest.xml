@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.practice.jacob.ppm">
-    //give permission to start the app on startup
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -27,15 +25,8 @@
         <activity
             android:name=".FullScreenVideo"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-
-        <receiver
-            android:name=".StartMyServiceAtBootReceiver"
-            android:label="StartMyServiceAtBootReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
 
         <activity android:name=".Admin"></activity>
     </application>
