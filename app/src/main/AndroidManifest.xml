@@ -3,6 +3,7 @@
     package="com.practice.jacob.ppm">
     //give permission to start the app on startup
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+
             android:name=".VideoSelect"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -19,7 +21,6 @@
                 <action   android:name="android.intent.action.MAIN"      />
                 <category android:name="android.intent.category.HOME"    />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.MONKEY"  />
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>

@@ -38,7 +38,7 @@ public class AudioPlayer {
     }
 
     /**
-     * stops audio if sets isStopped to true
+     * stops audio if sets isStopped is true
      */
     public void pause () {
         audio.stop();

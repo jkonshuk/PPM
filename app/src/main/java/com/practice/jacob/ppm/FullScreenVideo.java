@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -40,6 +39,16 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         setContentView(R.layout.activity_full_screen_video);
         initialize();
         start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ActivityManager activityManager = (ActivityManager) getApplicationContext()
+                .getSystemService(Context.ACTIVITY_SERVICE);
+
+        activityManager.moveTaskToFront(getTaskId(), 0);
     }
 
     private void initialize(){
@@ -81,10 +90,10 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
 
     /**
      * Not used in this class
-     * @param holder
-     * @param format
-     * @param width
-     * @param height
+     * @param holder N/A
+     * @param format N/A
+     * @param width  N/A
+     * @param height N/A
      */
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -153,7 +162,7 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
 
     /**
      * Override for on prepared listener
-     * @param mp
+     * @param mp The mediaPlayer for playing video in this activity
      */
     @Override
     public void onPrepared(MediaPlayer mp) {
@@ -162,15 +171,4 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         controller.setEnabled(true);
         controller.show();
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        ActivityManager activityManager = (ActivityManager) getApplicationContext()
-                .getSystemService(Context.ACTIVITY_SERVICE);
-
-        activityManager.moveTaskToFront(getTaskId(), 0);
-    }
-
 }

@@ -34,36 +34,6 @@ public class VideoSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_select);
         initialize();
-
-        //Check condition to exit app
-        if (getIntent().getBooleanExtra("EXIT", false)) {
-            finish();
-        }
-
-        //Disable the home button
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-    }
-
-
-    /**
-     * this will simply disable the user from using the back button.
-     * This function will only be used in this activities because back
-     * button in all other activities will bring it back to the main activity
-     * this methood will also take care of the search bottons
-     */
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            //Toast.makeText(this, "You pressed the back button!", Toast.LENGTH_LONG).show();
-            return true;
-        }
-        if(keyCode == KeyEvent.KEYCODE_HOME)
-        {
-            //DO NOTHING
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 
     /**
@@ -77,6 +47,21 @@ public class VideoSelect extends AppCompatActivity {
                 .getSystemService(Context.ACTIVITY_SERVICE);
 
         activityManager.moveTaskToFront(getTaskId(), 0);
+    }
+
+    /**
+     * this will simply disable the user from using the back button.
+     * This function will only be used in this activities because back
+     * button in all other activities will bring it back to the main activity
+     * this method will also take care of the search buttons
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     /**
