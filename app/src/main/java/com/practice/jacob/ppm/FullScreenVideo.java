@@ -40,6 +40,7 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         setContentView(R.layout.activity_full_screen_video);
         initialize();
         start();
+
     }
 
     @Override

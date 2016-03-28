@@ -17,6 +17,7 @@ public class Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        correctPass = false;
     }
 
     public void goBack (View v){
@@ -35,10 +36,12 @@ public class Admin extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        ActivityManager activityManager = (ActivityManager) getApplicationContext()
-                .getSystemService(Context.ACTIVITY_SERVICE);
+        if (correctPass == false) {
+            ActivityManager activityManager = (ActivityManager) getApplicationContext()
+                    .getSystemService(Context.ACTIVITY_SERVICE);
 
-        activityManager.moveTaskToFront(getTaskId(), 0);
+            activityManager.moveTaskToFront(getTaskId(), 0);
+        }
     }
 
     public void onClick(View v) {
@@ -54,6 +57,7 @@ public class Admin extends AppCompatActivity {
         //Password logic which currently takes us back to videoSelect
         else if(passwordField.getText().toString().equals(adminPassword)) {
             startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+            correctPass = true;
         } else {
             //wrong password, change text to red
             passwordField.setText("");
@@ -63,4 +67,5 @@ public class Admin extends AppCompatActivity {
     }
 
     private int numAvailable = 3;
+    private boolean correctPass;
 }
