@@ -83,10 +83,10 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
 
     /**
      * Not used in this class
-     * @param holder
-     * @param format
-     * @param width
-     * @param height
+     * @param holder holder
+     * @param format format key
+     * @param width width int
+     * @param height height int
      */
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -155,7 +155,7 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
 
     /**
      * Override for on prepared listener
-     * @param mp
+     * @param mp media player
      */
     @Override
     public void onPrepared(MediaPlayer mp) {
