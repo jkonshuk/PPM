@@ -38,15 +38,7 @@ public class Admin extends AppCompatActivity {
         return false;
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
 
-        ActivityManager activityManager = (ActivityManager) getApplicationContext()
-                .getSystemService(Context.ACTIVITY_SERVICE);
-
-        activityManager.moveTaskToFront(getTaskId(), 0);
-    }
     public void onClick(View v) {
         EditText passwordField = (EditText) (findViewById(R.id.password));
         TextView text = (TextView) (findViewById(R.id.textView));

@@ -65,19 +65,7 @@ public class VideoSelect extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
-    /**
-     * Lock down recent apps button
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        ActivityManager activityManager = (ActivityManager) getApplicationContext()
-                .getSystemService(Context.ACTIVITY_SERVICE);
-
-        activityManager.moveTaskToFront(getTaskId(), 0);
-    }
+    
 
     /**
      * The play audio takes the audio and plays it. It will check to see if
