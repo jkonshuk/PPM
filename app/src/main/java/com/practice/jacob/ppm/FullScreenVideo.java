@@ -1,5 +1,6 @@
 package com.practice.jacob.ppm;
 
+import android.app.ActionBar;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -75,6 +76,7 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
             controller.show();
         }
     }
+
     /**
      * In this class this method is used to keep the surface in scope for use in the
      * mediaPlayer. It is necessary to do anything we need with the surface between the
