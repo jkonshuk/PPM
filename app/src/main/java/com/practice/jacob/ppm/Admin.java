@@ -51,13 +51,14 @@ public class Admin extends AppCompatActivity {
         String adminPassword = "PPMexit";
 
         //If they have failed 3 times do nothing
-        if (numAvailable <= 0) {
+        if (numAvailable < 0) {
             text.setText ("Number of tries exceeded.. Please try again later..");
         }
         //Password logic which currently takes us back to videoSelect
         else if(passwordField.getText().toString().equals(adminPassword)) {
             startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
             correctPass = true;
+            numAvailable = 3;
         } else {
             //wrong password, change text to red
             passwordField.setText("");
