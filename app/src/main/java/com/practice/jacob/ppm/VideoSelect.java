@@ -1,14 +1,22 @@
 package com.practice.jacob.ppm;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +42,7 @@ public class VideoSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_select);
         initialize();
+        preventStatusBarExpansion(this);
     }
 
     /**
@@ -175,4 +184,53 @@ public class VideoSelect extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public static void preventStatusBarExpansion(Context context) {
+        WindowManager manager = ((WindowManager) context.getApplicationContext()
+                .getSystemService(Context.WINDOW_SERVICE));
+
+        Activity activity = (Activity)context;
+        WindowManager.LayoutParams localLayoutParams = new WindowManager.LayoutParams();
+        localLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        localLayoutParams.gravity = Gravity.TOP;
+        localLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|
+
+                // this is to enable the notification to recieve touch events
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
+
+                // Draws over status bar
+                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
+
+        localLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        //http://stackoverflow.com/questions/1016896/get-screen-dimensions-in-pixels
+        int resId = activity.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int result = 0;
+        if (resId > 0) {
+            result = activity.getResources().getDimensionPixelSize(resId);
+        }
+
+        localLayoutParams.height = result;
+
+        localLayoutParams.format = PixelFormat.TRANSPARENT;
+
+        customViewGroup view = new customViewGroup(context);
+
+        manager.addView(view, localLayoutParams);
+    }
+
+    public static class customViewGroup extends ViewGroup {
+
+        public customViewGroup(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(MotionEvent ev) {
+            Log.v("customViewGroup", "**********Intercepted");
+            return true;
+        }
+    }
 }

@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.MediaController;
 
+import java.lang.reflect.Method;
+
 /**
  * This class handles all of the video playing in a separate activity from the main activity
  * VideoSelect. It has to implement the SurfaceHolder.Callback to override the SurfaceCreated
@@ -174,4 +176,5 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         controller.setEnabled(true);
         controller.show();
     }
+
 }

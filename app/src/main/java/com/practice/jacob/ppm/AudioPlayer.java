@@ -2,7 +2,10 @@ package com.practice.jacob.ppm;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.support.v7.app.AppCompatActivity;
+
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class AudioPlayer {
 
@@ -55,4 +58,5 @@ public class AudioPlayer {
 
     private MediaPlayer audio;
     private boolean isStopped = false;
+
 }
