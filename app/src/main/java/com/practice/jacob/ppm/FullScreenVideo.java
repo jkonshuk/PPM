@@ -1,6 +1,5 @@
 package com.practice.jacob.ppm;
 
-import android.app.ActionBar;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +44,9 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
 
     }
 
+    /**
+     * prevents application from being paused by redirecting to the current window.
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -55,6 +57,9 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         activityManager.moveTaskToFront(getTaskId(), 0);
     }
 
+    /**
+     * sets default values for the surface, surface holder, media player and media controller.
+     */
     private void initialize(){
         //this is needed to get the id passed from the VideoSelect activity
         Intent intent = getIntent();
@@ -72,6 +77,10 @@ public class FullScreenVideo extends AppCompatActivity implements SurfaceHolder.
         myVid.setOnPreparedListener(this);
     }
 
+    /**
+     * on click to show the media controller
+     * @param v not used
+     */
     public void showMC(View v) {
         if (controller.isShowing()) {
             controller.hide();

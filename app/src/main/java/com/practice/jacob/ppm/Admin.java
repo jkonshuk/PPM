@@ -9,6 +9,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Timer;
 
 import java.lang.reflect.Method;
 
@@ -22,18 +25,9 @@ public class Admin extends AppCompatActivity {
         correctPass = false;
     }
 
-    public void goBack (View v){
-        finish();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            //we will also do nothing
-        }
-        return false;
-    }
-
+    /**
+     * Lock down recent apps button
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -46,6 +40,12 @@ public class Admin extends AppCompatActivity {
         }
     }
 
+    /**
+     * initializes password, text view, and edit text. We will keep track of number of times
+     * password was entered. If number of times is exceeded admin will lock. otherwise it will
+     * launch settings menu.
+     * @param v
+     */
     public void onClick(View v) {
         EditText passwordField = (EditText) (findViewById(R.id.password));
         TextView text = (TextView) (findViewById(R.id.textView));
@@ -54,7 +54,7 @@ public class Admin extends AppCompatActivity {
 
         //If they have failed 3 times do nothing
         if (numAvailable < 0) {
-            text.setText ("Number of tries exceeded.. Please try again later..");
+            text.setText ("Number of tries exceeded please try again later..");
         }
         //Password logic which currently takes us back to videoSelect
         else if(passwordField.getText().toString().equals(adminPassword)) {
@@ -64,12 +64,18 @@ public class Admin extends AppCompatActivity {
         } else {
             //wrong password, change text to red
             passwordField.setText("");
-            text.setText("Incorrect password please try again: Number of tries Available " + numAvailable);
+            text.setText("Incorrect password please try again: ");
+            if(numAvailable == 1)
+                Toast.makeText(getApplicationContext(), numAvailable + " try available."
+                        , Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(getApplicationContext(), numAvailable + " tries available."
+                        , Toast.LENGTH_LONG).show();
             text.setTextColor(0xFFFC0101);
         }
     }
 
-    private int numAvailable = 3;
+    private int numAvailable = 4;
     private boolean correctPass;
 
 }
