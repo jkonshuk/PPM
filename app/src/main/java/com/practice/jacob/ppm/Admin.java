@@ -53,7 +53,7 @@ public class Admin extends AppCompatActivity {
         String adminPassword = "PPMexit";
 
         //If they have failed 3 times do nothing
-        if (numAvailable < 0) {
+        if (numAvailable <= 0) {
             text.setText ("Number of tries exceeded please try again later..");
         }
         //Password logic which currently takes us back to videoSelect
@@ -65,17 +65,19 @@ public class Admin extends AppCompatActivity {
             //wrong password, change text to red
             passwordField.setText("");
             text.setText("Incorrect password please try again: ");
+
             if(numAvailable == 1)
                 Toast.makeText(getApplicationContext(), numAvailable + " try available."
                         , Toast.LENGTH_LONG).show();
-            else
+            else if(numAvailable > 1)
                 Toast.makeText(getApplicationContext(), numAvailable + " tries available."
                         , Toast.LENGTH_LONG).show();
+
             text.setTextColor(0xFFFC0101);
         }
     }
 
-    private int numAvailable = 4;
+    private int numAvailable = 3;
     private boolean correctPass;
 
 }
